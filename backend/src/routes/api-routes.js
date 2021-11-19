@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {checkAuthorization} = require('../middlewares/auth-middleware');
+const salesManRouter = require('./SalesMan-routes');
 
 /*
     In this file is the routing for the REST-endpoints under /api managed
@@ -13,5 +14,5 @@ router.get('/login', authApi.isLoggedIn); //the function, which handles requests
 
 const userApi = require('../apis/user-api');
 router.get('/user', checkAuthorization(), userApi.getSelf);
-
+router.use('/salesMan',salesManRouter);
 module.exports = router;
