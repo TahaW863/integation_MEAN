@@ -7,8 +7,7 @@
     @param {SocialPerformance} socialPerformance
  */
  class EvaluationRecord{
-    constructor(id,sid,year,productList,socialPerformance){
-        this.id=id;
+    constructor(sid,year,productList,socialPerformance){
         this.sid=sid;
         this.year=year;
         this.productList=productList;

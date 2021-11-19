@@ -31,7 +31,7 @@ module.exports={
  */
  deleteOne: async (req)=>{
     const _salesMan =await req.app.get('db').collection('salesMan');//get database from
-    return (await _salesMan.deleteMany({"sid": (req.params.sid)}))
+    return (await _salesMan.deleteOne({"sid": parseInt(req.params.sid)}))
  },
  updateOne: async (req)=>{
     const _salesMan =await req.app.get('db').collection('salesMan');//get database from
