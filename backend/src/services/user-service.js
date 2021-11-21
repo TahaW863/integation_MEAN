@@ -1,16 +1,17 @@
 const crypto = require('crypto');
 const salt = 'integrationArchitectures';
-
+const User = require('../models/User')
 /**
  * inserts a new user into database & hashes its password
  * @param db target database
  * @param {User} user new user
  * @return {Promise<any>}
  */
-exports.add = async function (db, user){
+exports.add = async function ( user){
     user.password = hashPassword(user.password);
 
-    return (await db.collection('users').insertOne(user)).insertedId; //return unique ID
+    //return (await db.collection('users').insertOne(user)).insertedId; //return unique ID
+    return (await User.insertMany(user))
 }
 
 /**
@@ -19,8 +20,8 @@ exports.add = async function (db, user){
  * @param {string} username
  * @return {Promise<User>}
  */
-exports.get = async function (db, username){
-    return db.collection('users').findOne({username: username});
+exports.get = async function (username){
+    return await User.findOne({username: username});
 }
 
 /**
@@ -29,8 +30,8 @@ exports.get = async function (db, username){
  * @param {Credentials} credentials credentials to verify
  * @return {Promise<User>}
  */
-exports.verify = async function (db, credentials){
-    let user = await this.get(db, credentials.username); //retrieve user with given email from database
+exports.verify = async function ( credentials){
+    let user = await this.get(credentials.username); //retrieve user with given email from database
 
     if(!user) throw new Error('User was not found!'); //no user found -> throw error
     if(!verifyPassword(credentials.password, user.password)) throw new Error('Password wrong!');

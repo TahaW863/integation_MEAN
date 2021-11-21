@@ -7,7 +7,7 @@
  * @param {string} password
  * @param {boolean} isAdmin
  */
-class User{
+/*class User{
     constructor(username, firstname, lastname, email, password, isAdmin) {
         this._id = undefined;
         this.username = username;
@@ -19,4 +19,37 @@ class User{
     }
 }
 
-module.exports = User;
+module.exports = User;*/
+const mongoose =require("mongoose");
+const Schema = mongoose.Schema;
+
+
+// Create Our Schema
+const UserSchema = new Schema({
+    username: {
+        type:String,
+        required:true
+    },
+    firstname:{
+        type:String,
+        required:true
+    },
+    lastname:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    isAdmin:{
+        type:Boolean,
+        required:true
+    }
+});
+const User=mongoose.model("user",UserSchema);
+module.exports=User;

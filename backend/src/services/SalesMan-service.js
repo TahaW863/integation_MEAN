@@ -6,12 +6,12 @@ module.exports={
  * @return {Promise<User>}
  */
     getAll:async (req)=>{
-        const _salesMan =await req.app.get('db').collection('salesMan');//get database from 
-        return await _salesMan.find({}).toArray();
+        //const _salesMan =await req.app.get('db').collection('salesMan');//get database from 
+        return await SalesMan.find({});
     },
     findOne:async (req)=>{
-        const _salesMan =await req.app.get('db').collection('salesMan');//get database from 
-        return await _salesMan.findOne({'sid':parseInt(req.body.sid)});
+        //const _salesMan =await req.app.get('db').collection('salesMan');//get database from 
+        return await SalesMan.findOne({'sid':parseInt(req.body.sid)});
     },
 /**
  * Creating one sales Man
@@ -19,24 +19,34 @@ module.exports={
  * @return {Promise<SalesMan>}
 */
     addOne:async (req)=>{
-        const _salesMan =await req.app.get('db').collection('salesMan');//get database from express
+        //const _salesMan =await req.app.get('db').collection('salesMan');//get database from express
         //console.log(body)
-        const salesMan=new SalesMan(req.body.sid,req.body.name, req.body.department
-        );
-        return (await _salesMan.insertOne(salesMan)).insertedId;
+        /*const salesMan=new SalesMan(req.body.sid,req.body.name, req.body.department
+        );*/
+        const salesMan={
+            sid:req.body.sid,
+            name:req.body.name,
+            department:req.body.department
+        }
+        return (await SalesMan.insertMany(salesMan)).insertedId;
     },
 /**
  * Delete one Sales Man
  * @return {Promise<}
  */
  deleteOne: async (req)=>{
-    const _salesMan =await req.app.get('db').collection('salesMan');//get database from
-    return (await _salesMan.deleteOne({"sid": parseInt(req.params.sid)}))
+    //const _salesMan =await req.app.get('db').collection('salesMan');//get database from
+    return (await SalesMan.deleteOne({"sid": parseInt(req.params.sid)}))
  },
  updateOne: async (req)=>{
-    const _salesMan =await req.app.get('db').collection('salesMan');//get database from
-    const salesMan=new SalesMan(req.body.sid,req.body.name, req.body.department
-        );
-    return (await _salesMan.updateOne({'sid': parseInt(req.body.sid)}, {$set:salesMan}))
+    //const _salesMan =await req.app.get('db').collection('salesMan');//get database from
+    /*const salesMan=new SalesMan(req.body.sid,req.body.name, req.body.department
+        );*/
+    const salesMan={
+        sid:req.body.sid,
+        name:req.body.name,
+        department:req.body.department
+    }
+    return (await SalesMan.updateOne({'sid': parseInt(req.body.sid)}, {$set:salesMan}))
  }
 }

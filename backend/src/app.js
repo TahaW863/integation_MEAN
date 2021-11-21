@@ -10,8 +10,10 @@ const upload = multer();
 const app = express();
 const crypto = require('crypto');
 
-const mongodb = require('mongodb');
-const MongoClient = mongodb.MongoClient;
+//const mongodb = require('mongodb');
+//const MongoClient = mongodb.MongoClient;
+
+const mongoose = require('mongoose');
 
 // MongoDB connection details:
 const domain = 'localhost';
@@ -43,18 +45,19 @@ if(username){
     credentials = username+':'+password+'@';
 }
 
-MongoClient.connect('mongodb://' + credentials + domain + ':' + port + '/').then(async dbo =>{ //connect to MongoDb
+//MongoClient.connect
+mongoose.connect('mongodb://' + credentials + domain + ':' + port + '/'+databaseName).then(async () =>{ //connect to MongoDb
 
-    const db = dbo.db(databaseName);
-    await initDb(db); //run initialization function
-    app.set('db',db); //register database in the express app
+    //const db = dbo.db(databaseName);
+    //await initDb(db); //run initialization function
+    //app.set('db',db); //register database in the express app
 
     app.listen(8080, () => { //start webserver, after database-connection was established
         console.log('Webserver started.');
     });
 });
 
-async function initDb(db){
+/*async function initDb(db){
     if(await db.collection('users').count() < 1){ //if no user exists create admin user
         const userService = require('./services/user-service');
         const User = require("./models/User");
@@ -64,4 +67,23 @@ async function initDb(db){
 
         console.log('created admin user with password: '+adminPassword);
     }
+}*/
+const SeedDB=async()=>{
+    const User=require('./models/User')
+    if(await User.count() < 1){
+    const userService = require('./services/user-service');
+    const adminPassword = crypto.randomBytes(8).toString('base64');
+    await userService.add(
+        {username:'admin',
+        firstname:' ',
+        lastname:'admin',
+        email:' ',
+        password: adminPassword,
+        isAdmin:true}
+        );
+
+    console.log('created admin user with password: '+adminPassword);
+    }
 }
+SeedDB();
+// client -> req -> (MID) -> resources 

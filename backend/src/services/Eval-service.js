@@ -1,17 +1,19 @@
 
 const Evl = require("../models/EvaluationRecord")
+const Product=require("../models/Product")
+const SocialPerformance=require("../models/SocialPerformance")
 module.exports={
 /**
  * retrieves All SalesMan
  * @return {Promise<User>}
  */
     getAll:async (req)=>{
-        const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from 
-        return await _Evl.find({}).toArray();
+        //const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from 
+        return await Evl.find({});
     },
     findOne:async (req)=>{
-        const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from 
-        return await _Evl.find({'sid':parseInt(req.body.sid)});
+        //const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from 
+        return await Evl.findOne({'sid':parseInt(req.body.sid)});
     },
 /**
  * Creating one sales Man
@@ -19,22 +21,32 @@ module.exports={
  * @return {Promise<SalesMan>}
 */
     addOne:async (req)=>{
-        const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from express
+        //const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from express
         //console.log(body)
-        const Ev=new Evl(req.body.sid,req.body.year, req.body.productList,req.body.socialPerformance);
-        return (await _Evl.insertOne(Ev)).insertedId;
+        const Ev={
+            sid:req.body.sid,
+            year:req.body.year,
+            productList:req.body.productList,
+            socialPerformance:req.body.socialPerformance
+            };
+        return (await Evl.insertMany(Ev)).insertedId;
     },
 /**
  * Delete one Sales Man
  * @return {Promise<}
  */
  deleteOne: async (req)=>{
-    const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from
-    return (await _Evl.deleteOne({"sid": parseInt(req.params.sid)}))
+    //const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from
+    return (await Evl.deleteOne({"sid": parseInt(req.params.sid)}))
  },
  updateOne: async (req)=>{
-    const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from
-    const Ev=new Evl(req.body.sid,req.body.year, req.body.productList,req.body.socialPerformance);
-    return (await _Evl.updateOne({'sid': parseInt(req.body.sid)}, {$set:Ev}))
+    //const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from
+    const Ev={
+        sid:req.body.sid,
+        year:req.body.year,
+        productList:req.body.productList,
+        socialPerformance:req.body.socialPerformance
+        };
+    return (await Evl.updateOne({'sid': parseInt(req.body.sid)}, {$set:Ev}))
  }
 }
