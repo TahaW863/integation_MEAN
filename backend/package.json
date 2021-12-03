@@ -3,13 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./src/app.js"
+    "start": "nodemon ./src/app.js"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "crypto": "^1.0.1",
     "express": "~4.16.1",
     "express-session": "^1.17.2",
     "mongodb": "^4.2.0",
-    "multer": "^1.4.3"
+    "mongoose": "^6.0.14",
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.15"
   }
 }
