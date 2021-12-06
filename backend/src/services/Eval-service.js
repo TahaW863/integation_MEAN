@@ -25,7 +25,6 @@ module.exports={
         //console.log(body)
         const Ev={
             sid:req.body.sid,
-            year:req.body.year,
             productList:req.body.productList,
             socialPerformance:req.body.socialPerformance
             };
@@ -43,7 +42,6 @@ module.exports={
     //const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from
     const Ev={
         sid:req.body.sid,
-        year:req.body.year,
         productList:req.body.productList,
         socialPerformance:req.body.socialPerformance
         };

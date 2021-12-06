@@ -2,7 +2,6 @@
  * @Id
     @param {string} id
     @param {int} sid
-    @param {int} year;
     @param {Array.<Product>} productList
     @param {SocialPerformance} socialPerformance
  */
@@ -21,10 +20,6 @@ const SocialPerformance=require('./SocialPerformance')
 // Create Our Schema
 const EvaluationRecordSchema = new Schema({
     sid:{
-        type:Number,
-        required:true
-    },
-    year:{
         type:Number,
         required:true
     },

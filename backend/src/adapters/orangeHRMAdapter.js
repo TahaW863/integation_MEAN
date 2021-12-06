@@ -1,7 +1,7 @@
 const axios = require('axios') ; 
 const qs = require('node:querystring');
 const baseUrl = 'https://sepp-hrm.inf.h-brs.de/symfony/web/index.php';
-
+const salesMan = require('../models/SalesMan')
 const body = qs.stringify({
     client_id: 'api_oauth_id',
     client_secret: 'oauth_secret',
@@ -39,8 +39,8 @@ module.exports= {
     
     salesMenJSONList.forEach(element => {
         if (element.jobTitle =="Senior Salesman") {
-        let salesMan={
-            sid:element.employeeId ,
+         const salesMan={
+            sid:element.code ,
             name:element.firstName,
             department:element.jobTitle || ' '
         }

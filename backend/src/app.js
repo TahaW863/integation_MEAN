@@ -40,6 +40,7 @@ app.use(session({
 
 const apiRouter = require('./routes/api-routes'); //get api-router from routes/api
 const SalesMan = require('./models/SalesMan');
+const EvaluationRecord = require('./models/EvaluationRecord');
 app.use('/api', apiRouter); //mount api-router at path "/api"
 // !!!! attention all middlewares, mounted after the router wont be called for any requests
 
@@ -110,8 +111,9 @@ const SeedDB=async()=>{
 
     
     const openCRXAdapter = require ('../src/adapters/openCRXAdapter');
-    openCRXAdapter.loadCustomers();
-
+    
+    const evaluationRecord = await openCRXAdapter.loadEvalutionRecord();
+    await EvaluationRecord.insertMany(evaluationRecord);
 
 }
 
