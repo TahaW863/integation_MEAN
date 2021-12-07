@@ -26,7 +26,8 @@ module.exports={
         const salesMan={
             sid:req.body.sid,
             name:req.body.name,
-            department:req.body.department
+            department:req.body.department,
+            bonusSalary:req.body.bonusSalary || null
         }
         return (await SalesMan.insertMany(salesMan)).insertedId;
     },
@@ -45,7 +46,8 @@ module.exports={
     const salesMan={
         sid:req.body.sid,
         name:req.body.name,
-        department:req.body.department
+        department:req.body.department,
+        bonusSalary:req.body.bonusSalary || null
     }
     return (await SalesMan.updateOne({'sid': parseInt(req.body.sid)}, {$set:salesMan}))
  }

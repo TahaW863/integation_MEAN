@@ -1,7 +1,8 @@
 const axios = require('axios') ; 
 const qs = require('node:querystring');
 const baseUrl = 'https://sepp-hrm.inf.h-brs.de/symfony/web/index.php';
-const salesMan = require('../models/SalesMan')
+const salesMan = require('../models/SalesMan');
+const bonusSalary= require('../models/BonusSalary');
 const body = qs.stringify({
     client_id: 'api_oauth_id',
     client_secret: 'oauth_secret',
@@ -36,13 +37,22 @@ module.exports= {
     let salesMenObjectList = [];
      
     console.log('im here');
-    
+    let bonusSalaryObject = {
+        value : 0 ,
+        year : 2021
+    } ;
+
     salesMenJSONList.forEach(element => {
+        let bonusSalaryObject = {
+        value : 0,
+        year : 2021
+    } ;
         if (element.jobTitle =="Senior Salesman") {
          const salesMan={
             sid:element.code ,
             name:element.firstName,
-            department:element.jobTitle || ' '
+            department:element.jobTitle || ' ',
+            bonusSalary:bonusSalaryObject || null
         }
         //console.log(salesMan);
         

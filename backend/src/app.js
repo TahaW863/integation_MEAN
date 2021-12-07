@@ -96,16 +96,11 @@ const SeedDB=async()=>{
         isAdmin:true}
         );
     
+    await printsth ;
     console.log('created admin user with password: '+adminPassword);
- 
-    }
-    
-    const salesManService = require('../src/services/SalesMan-service');
+     const salesManService = require('../src/services/SalesMan-service');
     const SalesMan = require("../src/models/SalesMan");
-
-    printsth();
-    //
-    const orangeHRMAdapter = require ('./adapters/orangeHRMAdapter');
+      const orangeHRMAdapter = require ('./adapters/orangeHRMAdapter');
     const SalesMen = await orangeHRMAdapter.loadSalesMen();
     await SalesMan.insertMany(SalesMen); //insert salesmen from OrangeHRM into the database
 
@@ -114,6 +109,10 @@ const SeedDB=async()=>{
     
     const evaluationRecord = await openCRXAdapter.loadEvalutionRecord();
     await EvaluationRecord.insertMany(evaluationRecord);
+ 
+    }
+ 
+  
 
 }
 

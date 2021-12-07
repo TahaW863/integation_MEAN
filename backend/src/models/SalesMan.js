@@ -2,6 +2,7 @@
  * @param {int} sid
  * @param {string} name
  * @param {string} department 
+ *@param {Array.<BonusSalary>} bonusSalary 
  */
 /*class SalesMan{
     constructor(sid, name, department){
@@ -12,6 +13,7 @@
 }*/
 const mongoose =require("mongoose");
 const Schema = mongoose.Schema;
+const BonusSalary = require("./BonusSalary");
 
 // Create Our Schema
 const SalesManSchema = new Schema({
@@ -26,7 +28,9 @@ const SalesManSchema = new Schema({
     department:{
         type:String,
         required:true
-    }
+    },
+    bonusSalary : BonusSalary.Schema
+    
 });
 const SalesMan=mongoose.model('salesMan', SalesManSchema);
 module.exports = SalesMan;
