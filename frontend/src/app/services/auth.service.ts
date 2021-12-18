@@ -57,7 +57,7 @@ export class AuthService {
   /**
    * retrieves the login state from backend
    */
-  checkLogin():Observable<HttpResponse<{loggedIn: boolean}>>{
+  checkLogin(): Observable<HttpResponse<{loggedIn: boolean}>>{
     return this.http.get<{loggedIn: boolean}>('/api/login', {observe: 'response'});
   }
 

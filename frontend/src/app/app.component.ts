@@ -10,10 +10,10 @@ export class AppComponent implements OnInit{
 
   isLoggedIn: boolean;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService) {//awake
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {//start
     this.authService.subscribeLoginChange((newState: boolean) => {this.isLoggedIn = newState});
     this.authService.isLoggedIn().subscribe();
   }

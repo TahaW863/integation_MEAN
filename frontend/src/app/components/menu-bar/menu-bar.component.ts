@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../services/auth.service";
-import {Router} from "@angular/router";
-import {User} from "../../models/User";
-import {UserService} from "../../services/user.service";
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
+import {User} from '../../models/User';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-menu-bar',
@@ -11,14 +11,15 @@ import {UserService} from "../../services/user.service";
 })
 export class MenuBarComponent implements OnInit {
 
-  user:User;
+  user: User;
 
   /*
     This array holds the definition of the menu's buttons.
    */
   buttons = [
-    {title: 'Welcome', routerLink: ''}, //the tile is the text on the button, the routerLink specifies, where it will navigate
+    {title: 'Welcome', routerLink: ''}, // the tile is the text on the button, the routerLink specifies, where it will navigate
     {title: 'Example', routerLink: 'example'},
+    {title: 'SalesMan', routerLink: 'salesMan'},
   ];
 
   /**
@@ -38,7 +39,7 @@ export class MenuBarComponent implements OnInit {
    */
   handleLogout(){
     this.authService.logout().subscribe();
-    this.router.navigate(['login']); //after logout go back to the login-page
+    this.router.navigate(['login']); // after logout go back to the login-page
   }
 
   /**

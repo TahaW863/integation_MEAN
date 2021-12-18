@@ -17,6 +17,6 @@ export class UserService {
    * retrieves userdata of currently authenticated user
    */
   getOwnUser():Observable<User>{
-    return this.http.get<User>('/api/user'); //use angular's integrated HTTP-client to make a get request; handle the response as a User object
+    return this.http.get<User>('/api/user'); // use angular's integrated HTTP-client to make a get request; handle the response as a User object
   }
 }
