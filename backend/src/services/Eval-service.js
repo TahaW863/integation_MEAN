@@ -13,7 +13,9 @@ module.exports={
     },
     findOne:async (req)=>{
         //const _Evl =await req.app.get('db').collection('EvaluationRecord');//get database from 
-        return await Evl.findOne({'sid':parseInt(req.body.sid)});
+        return await Evl.findOne({'sid':parseInt(req.params.sid)});
+      
+        
     },
 /**
  * Creating one sales Man

@@ -29,5 +29,11 @@ module.exports = {
         evlService.updateOne(req).then(result=>{
             res.status(200).send("Updated")
         })
+    },
+    getOneEvl: function(req, res){
+
+        evlService.findOne(req).then(result=>{
+            res.status(200).send(result)
+        })
     }
 }

@@ -1,0 +1,38 @@
+<div class="container-fluid ">
+  <p class="h1">Evaluation Records</p>
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">Sales Man</h3>
+        </div>
+        <div class="table-responsive">
+          <table  class="table align-items-center table-dark table-flush" >
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">Sid</th>
+              <th scope="col">ProductList</th>
+              <th scope="col">socialPerformance</th>
+              <th scope="col">options</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr *ngFor="let element of evaluationRecord;">
+              <td>{{element.sid}}</td>
+              <td><tr *ngFor="let element2 of element.productList;">
+                <td>{{element2.name}}</td>
+              </tr>
+              </td>
+              <td>{{element.socialPerformance}}</td>
+              <td> <!-- make sure to make a page for edit and one for new-->
+                <a asp-action="Edit" asp-route-id="{{element._id}}" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt" aria-hidden="true"></i> Edit</a>
+                <a asp-action="Delete" asp-route-id="{{element._id}}" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt" aria-hidden="true"></i>Delete</a>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

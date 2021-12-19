@@ -19,6 +19,8 @@ import { ExamplePageComponent } from './pages/example-page/example-page.componen
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { SalesManPageComponent } from './pages/sales-man-page/sales-man-page.component';
 import {MatTableModule} from "@angular/material/table";
+import { EvaluationRecordPageComponent } from './pages/evaluation-record-page/evaluation-record-page.component';
+import { SalesManEvaluationViewPageComponent } from './pages/sales-man-evaluation-view-page/sales-man-evaluation-view-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import {MatTableModule} from "@angular/material/table";
     ExamplePageComponent,
     NotFoundPageComponent,
     SalesManPageComponent,
+    EvaluationRecordPageComponent,
+    SalesManEvaluationViewPageComponent,
   ],
   imports: [
     BrowserModule,
