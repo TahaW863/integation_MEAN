@@ -109,10 +109,14 @@ const SeedDB=async()=>{
     
     const evaluationRecord = await openCRXAdapter.loadEvalutionRecord();
     await EvaluationRecord.insertMany(evaluationRecord);
+
+   
  
     }
  
-  
+    const bonusSalaryService= require ('./services/BonusSalaryCalculation-service');
+    
+    const  result= await bonusSalaryService.calculateTheBonusSalary();
 
 }
 

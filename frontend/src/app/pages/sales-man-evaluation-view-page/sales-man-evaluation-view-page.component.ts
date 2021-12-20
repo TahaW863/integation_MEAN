@@ -12,8 +12,6 @@ import { SalesManEvaluationViewService } from 'src/app/services/sales-man-evalua
 export class SalesManEvaluationViewPageComponent implements OnInit {
   evaluationRecord:EvaluationRecord;
   bonusSalary :Number;
-
-
   constructor(private route:ActivatedRoute,private SalesManEvaluationService : SalesManEvaluationViewService) { }
 
   ngOnInit(): void {

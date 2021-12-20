@@ -15,11 +15,14 @@ export class SalesManEvaluationViewService {
 
   /**
    * @returns {Observable<EvaluationRecord>}
-   */
-
+//    */
+// calculateBonusSalary (_sid:number): Observable<Number>{
+//    return
+// }
 
   getOneEvaluationRecord(_sid:number): Observable<EvaluationRecord> {
     return this.http.get<EvaluationRecord>(`/api/EvaluationRecord/${_sid}`);
   }
+
 
 }

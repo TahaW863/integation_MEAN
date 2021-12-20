@@ -1,4 +1,5 @@
 const salesManService = require('../services/SalesMan-service');
+
 module.exports = {
 /**
  * endpoint, which handles Fetching All salesMan from the data base 
@@ -29,5 +30,15 @@ module.exports = {
         salesManService.updateOne(req).then(result=>{
             res.status(200).send("Updated")
         })
-    }
+    },
+    addBonusSalary: function (req,res)  {
+
+        salesManService.addBonusSalary(req).then(result=>{
+            res.status.send(result);
+        })
+    },
+    
+
+
+    
 }
