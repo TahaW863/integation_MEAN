@@ -3,11 +3,13 @@ const qs = require('node:querystring');
 const baseUrl = 'https://sepp-hrm.inf.h-brs.de/symfony/web/index.php';
 const salesMan = require('../models/SalesMan');
 const bonusSalary= require('../models/BonusSalary');
+const SalesMan = require('../models/SalesMan');
+const { addBonusSalary } = require('../services/SalesMan-service');
 const body = qs.stringify({
     client_id: 'api_oauth_id',
     client_secret: 'oauth_secret',
     grant_type: 'password',
-    username: 'demouser',
+    username: 'Dulkumoni',
     password: '*Safb02da42Demo$'
     });
 
@@ -50,6 +52,7 @@ module.exports= {
         if (element.jobTitle =="Senior Salesman") {
          const salesMan={
             sid:element.code ,
+            employeeId: element.employeeId,
             name:element.firstName,
             department:element.jobTitle || ' ',
             bonusSalary:bonusSalaryObject || null
@@ -61,5 +64,8 @@ module.exports= {
     });
     
    return salesMenObjectList;
+
 }  
+
+
 }

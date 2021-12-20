@@ -12,7 +12,7 @@ import {EvaluationRecord} from "../models/EvaluationRecord";
 export class EvaluationRecordService {
   constructor(private http: HttpClient) { }
 
-  /**d
+  /**
    * @returns {Observable<EvaluationRecord[]>}
    */
 

@@ -1,5 +1,6 @@
 /**
  * @param {int} sid
+ * @param {int} employeeId
  * @param {string} name
  * @param {string} department 
  *@param {Array.<BonusSalary>} bonusSalary 
@@ -20,6 +21,10 @@ const SalesManSchema = new Schema({
     sid:{
         type:Number,
         required:true
+    },
+    employeeId:
+    {
+        type:Number,
     },
     name:{
         type:String,
