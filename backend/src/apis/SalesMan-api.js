@@ -25,9 +25,14 @@ module.exports = {
         })
     },
     updateSalesMan: function(req, res){
-
         salesManService.updateOne(req).then(result=>{
             res.status(200).send("Updated")
+        })
+    }
+    ,
+    getOneSalesMan: function(req, res){
+        salesManService.findOne(req).then(result=>{
+            res.status(200).send(result)
         })
     }
 }

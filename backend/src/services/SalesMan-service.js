@@ -11,7 +11,7 @@ module.exports={
     },
     findOne:async (req)=>{
         //const _salesMan =await req.app.get('db').collection('salesMan');//get database from 
-        return await SalesMan.findOne({'sid':parseInt(req.body.sid)});
+        return await SalesMan.findOne({'sid':parseInt(req.params.sid)});
     },
 /**
  * Creating one sales Man

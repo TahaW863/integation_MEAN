@@ -27,9 +27,6 @@ async function getSalesOrder() {
     return salesOrderList;
 }
 async function getidSalesOrder(url) {
-
-
-
     if (url) {
         let idString = [];
         let idValue = [];

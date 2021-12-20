@@ -1,5 +1,145 @@
-<div *ngIf="evaluationRecord">
+<!-- <div *ngIf="evaluationRecord">
   <h2>{{evaluationRecord.sid }} Details</h2>
-<h2>{{bonusSalary}}</h2>
+  <h2>{{bonusSalary}}</h2>
 
+  </div> -->
+  
+  <!-- <div *ngIf="salesMan">
+  <h2>{{salesMan.name}} Details</h2>
+  </div> 
+   -->
+<div class="container-fluid ">
+  <p class="h1"> Evaluation Record </p>
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">ID</th>
+                <th scope="col">Department</th>
+
+              </tr>
+            </thead>
+
+            <tbody>
+              
+              <tr>
+                <td>{{salesMan.name}}</td>
+                <td>{{salesMan.sid}}</td>
+                <td>{{salesMan.department}}</td>
+
+              </tr>
+            </tbody>
+          </table>
+
+<!-- 
+          <div class="card card-block" *ngFor="let element of evaluationRecord.productList;">
+            <h4 class="card-title">{{element.name}}</h4>
+            <p class="card-text"></p>
+          </div> -->
+
+          <!-- <td><tr>{{evaluationRecord.productList[0].name}}</tr>
+                  <tr>{{evaluationRecord.productList[1].name}} </tr></td> -->
+              <!-- <td><tr *ngFor="let product of evaluationRecord.productList;">
+                  <td>{{product.name}}</td>
+                  </tr>
+              </td> -->
+              <!-- <td> <tr *ngFor="let element2 of element.productList;">  
+              </tr> </td> -->
+
+        </div>
+      </div>
+    </div>
   </div>
+
+
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ProductList</th>
+                <th scope="col">Client</th>
+                <th scope="col">Ranking</th>
+                <th scope="col">items sold</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              
+              <tr *ngIf="evaluationRecord">
+                <!-- <td>{{evaluationRecord.sid}}</td>  -->
+
+                 <td>
+                  <tr *ngFor="let product of evaluationRecord.productList;">
+                    <td>{{product.name}}</td>
+                    
+                  </tr> 
+                </td>
+                 
+                 <td>
+                  <tr *ngFor="let product of evaluationRecord.productList;">
+                    <td>
+                    <tr *ngFor="let customer of product.customerList;">
+                      <td>{{customer.clientName}}</td>
+                    </tr>
+                  </td>
+                  </tr>   
+                </td>
+
+                <td>
+                  <tr *ngFor="let product of evaluationRecord.productList;">
+                    <td>
+                    <tr *ngFor="let customer of product.customerList;">
+                      <td>{{customer.ranking}}</td>
+                    </tr>
+                  </td>
+                  </tr>   
+                </td>
+
+                <td>
+                  <tr *ngFor="let product of evaluationRecord.productList;">
+                    <td>
+                    <tr *ngFor="let customer of product.customerList;">
+                      <td>{{customer.itemsSold}}</td>
+                    </tr>
+                  </td>
+                  </tr>   
+                </td>
+
+                
+                
+
+                </tr>
+            </tbody>
+          </table>
+
+<!-- 
+          <div class="card card-block" *ngFor="let element of evaluationRecord.productList;">
+            <h4 class="card-title">{{element.name}}</h4>
+            <p class="card-text"></p>
+          </div> -->
+
+          <!-- <td><tr>{{evaluationRecord.productList[0].name}}</tr>
+                  <tr>{{evaluationRecord.productList[1].name}} </tr></td> -->
+              <!-- <td><tr *ngFor="let product of evaluationRecord.productList;">
+                  <td>{{product.name}}</td>
+                  </tr>
+              </td> -->
+              <!-- <td> <tr *ngFor="let element2 of element.productList;">  
+              </tr> </td> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
