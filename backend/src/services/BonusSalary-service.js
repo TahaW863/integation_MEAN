@@ -41,7 +41,7 @@ module.exports = {
         formData.append('year', bonusSalary['year']);
 
         try {
-            console.log(' bonus salary added ' + employeeId + "" + token);
+            //console.log(' bonus salary added ' + employeeId + "" + token);
             let request = await axios.post(
                 baseUrl + '/api/v1/employee/' + employeeId + '/bonussalary',
                 formData,
@@ -52,7 +52,7 @@ module.exports = {
                     }
                 }
             );
-            console.log(request);
+           // console.log(request);
 
         } catch (error) {
             throw new Error(' adding bonus salary failed: ' + error);

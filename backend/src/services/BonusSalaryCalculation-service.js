@@ -20,29 +20,29 @@ module.exports = {
                     evl.productList.forEach(product => {
                         product.customerList.forEach(customer => {
                             if (customer.ranking == "1") {
-                                console.log(customer.ranking);
+                               // console.log(customer.ranking);
                                 bonusValue = bonusValue + customer.itemsSold * 30;
-                                console.log(bonusValue);
+                               // console.log(bonusValue);
                             }
                             else if (customer.ranking == "2") {
-                                console.log(customer.ranking);
+                               // console.log(customer.ranking);
                                 bonusValue += customer.itemsSold * 20;
-                                console.log(bonusValue);
+                                //console.log(bonusValue);
                             }
                             else if (customer.ranking == "3") {
-                                console.log(customer.ranking);
+                               // console.log(customer.ranking);
                                 bonusValue += parseInt(customer.itemsSold) * 10;
-                                console.log(bonusValue);
+                               // console.log(bonusValue);
                             }
                         });
 
                     });
 
-                    console.log("evaluationRecord ", evl);
+                    //console.log("evaluationRecord ", evl);
                     salesMan.bonusSalary.value = bonusValue;
-                    console.log("bonusSalary value" + salesMan.bonusSalary.value)
+                   // console.log("bonusSalary value" + salesMan.bonusSalary.value)
                     salesMan.bonusSalary.year = 2022;
-                    console.log("bonusSalary year" + salesMan.bonusSalary.year)
+                    //console.log("bonusSalary year" + salesMan.bonusSalary.year)
 
                     const salesManupdate = {
                         sid: salesMan.sid,
@@ -51,7 +51,7 @@ module.exports = {
                         department: salesMan.department,
                         bonusSalary: salesMan.bonusSalary || null
                     }
-                    console.log(salesManupdate);
+                    //console.log(salesManupdate);
                    //bonusSalaryService.addBonusSalaryOHRM(salesMan.employeeId,salesMan.bonusSalary);
                    SalesManService.updateBonusSalary(salesManupdate);
                      //SalesMan.updateOne({'sid': parseInt(salesMan.sid) }, { $set: salesManupdate });

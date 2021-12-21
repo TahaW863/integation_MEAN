@@ -13,11 +13,9 @@ export class SalesManEvaluationViewPageComponent implements OnInit {
 
   evaluationRecord:EvaluationRecord;
   bonusSalary :Number;
-<<<<<<< HEAD
   salesMan:SalesMan ;
 
-=======
->>>>>>> 56a38884f1241698d15aaf77448a8d8f2575e085
+
   constructor(private route:ActivatedRoute,private SalesManEvaluationService : SalesManEvaluationViewService) { }
 
   ngOnInit(): void {
@@ -46,7 +44,7 @@ export class SalesManEvaluationViewPageComponent implements OnInit {
             //calculate bonus salary
           }
           );
-      
+
     }
 
     calculateBonusSalary (evaluationRecord: EvaluationRecord):number{
