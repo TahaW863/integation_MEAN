@@ -38,7 +38,7 @@ module.exports= {
     let salesMenJSONList = res.data.data;
     let salesMenObjectList = [];
      
-    console.log('im here');
+   // console.log('im here');
     let bonusSalaryObject = {
         value : 0 ,
         year : 2021

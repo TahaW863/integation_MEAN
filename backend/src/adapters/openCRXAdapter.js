@@ -40,7 +40,7 @@ async function getidSalesOrder(url) {
         for (let index = 0; index < idString.length; index++) {
             idValue.push(idString[index][8])
         }
-        console.log(idValue);
+      //  console.log(idValue);
         return idValue;
     }
 }
@@ -79,7 +79,7 @@ module.exports = {
                 let salesOrderByGovID = salesFilter.map(value => value.salesOrder);
                 var myProductList = [];
 
-                console.log(salesOrderByGovID.length);
+                //console.log(salesOrderByGovID.length);
 
                 let idString = await getidSalesOrder(salesOrderByGovID);
                 for (let index = 0; index < salesFilter.length; index++) {
@@ -105,13 +105,13 @@ module.exports = {
                     var positionList = position.data.objects;
 
                     if (positionList)
-                        console.log(positionList);
+                        //console.log(positionList);
 
                     if (positionList) {
 
                         for (let index2 = 0; index2 < positionList.length; index2++) {
 
-                            console.log(index)
+                            //console.log(index)
                             var quantity = positionList[index2].quantity;
                             var positionData = positionList[index2].product;
 
@@ -195,7 +195,7 @@ module.exports = {
                     //productlist ,
                     socialPerformance: null
                 };
-                console.log(EV)
+                //console.log(EV)
 
                 evaluationRecordList.push(EV);
 

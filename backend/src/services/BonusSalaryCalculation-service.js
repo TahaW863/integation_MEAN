@@ -13,9 +13,9 @@ module.exports = {
         salesManList.forEach(salesMan => {
             evaluationRecordList.forEach(evl => {
 
-                let result = SalesMan.findOne({ 'sid': parseInt(evl.sid) });
+                //let result = SalesMan.findOne({ 'sid': parseInt(evl.sid) });
                 
-                if (result) {
+                if (salesMan.sid == evl.sid) {
                     var bonusValue = 0;
                     evl.productList.forEach(product => {
                         product.customerList.forEach(customer => {
